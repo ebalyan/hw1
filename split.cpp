@@ -28,7 +28,7 @@ current->next = NULL;
 split(in, odds, evens);
 
 if (current->value % 2 != 0){
-current->next odds;
+current->next = odds;
 odds = current;
 }
 else{

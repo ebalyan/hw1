@@ -31,13 +31,13 @@ std::string const & ULListStr::back() const
 }
 std::string const & ULListStr::front() const
 {
-  return head_->val[tail_->first];
+  return head_->val[head_->first];
 
 }
 
 void ULListStr::push_back(const std::string& val)
 {
-  if empty()) {
+  if (empty()) {
     Item* item = new Item;
     item->val[0] = val;
     item->first = 0;
@@ -58,12 +58,12 @@ void ULListStr::push_back(const std::string& val)
     tail_->next = item;
     tail_ = item;
   }
-size++;
+size_++;
 }
 
 void ULListStr::push_front(const std::string& val)
 {
-  if empty()) {
+  if (empty()) {
     Item* item = new Item;
     item->first = ARRSIZE - 1;
     item->last = ARRSIZE;
@@ -84,10 +84,10 @@ void ULListStr::push_front(const std::string& val)
     head_->prev = item;
     head_ = item;
   }
-size++;
+size_++;
 }
 
-void ULListStr::pop_bacl()
+void ULListStr::pop_back()
 {
   if(empty()) {
     return;
@@ -118,7 +118,7 @@ void ULListStr::pop_front()
     return;
 }
 
-  tail_->first++;
+  head_->first++;
   size_--;
 
   if(head_->first == head_->last){
@@ -128,6 +128,11 @@ void ULListStr::pop_front()
     head_ = NULL;
     tail_ = NULL;
   }
+    else{
+      head_ = head_->next;
+      head_->prev = NULL;
+    }
+    
 delete temp;
   }
 }

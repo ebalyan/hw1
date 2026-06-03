@@ -25,15 +25,6 @@ size_t ULListStr::size() const
 }
 
 // WRITE YOUR CODE HERE
-std::string const & ULListStr::back() const
-{
-  return tail_->val[tail_->last - 1];
-}
-std::string const & ULListStr::front() const
-{
-  return head_->val[head_->first];
-
-}
 
 void ULListStr::push_back(const std::string& val)
 {
